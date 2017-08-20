@@ -1,6 +1,6 @@
 .container{
   overflow:hidden;
-  background:
+  background: 
     linear-gradient(45deg, rgba(0,103, 255, 0.3), rgba(0, 150, 80, 0.9)),
     url('../../assets/img/login-3.png') center center no-repeat;;
 }

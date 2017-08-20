@@ -11,14 +11,19 @@ import { ChatMessage } from '../models/chat-message.model';
 export class MessageComponent implements OnInit {
 
   @Input() chatMessage: ChatMessage;
-
   userEmail: string;
   userName: string;
   messageContent: string;
   timeStamp: Date = new Date();
   isOwnMessage: boolean;
+  ownEmail: string;
 
-  constructor() { }
+  constructor(private authService: AuthService) {
+    authService.authUser().subscribe(user => {
+      this.ownEmail = user.email;
+      this.isOwnMessage = this.ownEmail === this.userEmail;
+    });
+  }
 
   ngOnInit(chatMessage = this.chatMessage) {
     this.messageContent = chatMessage.message;
@@ -26,5 +31,4 @@ export class MessageComponent implements OnInit {
     this.userEmail = chatMessage.email;
     this.userName = chatMessage.userName;
   }
-
 }

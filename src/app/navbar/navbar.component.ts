@@ -11,6 +11,7 @@ import * as firebase from 'firebase/app';
 export class NavbarComponent implements OnInit {
   user: Observable<firebase.User>;
   userEmail: string;
+
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
@@ -22,4 +23,7 @@ export class NavbarComponent implements OnInit {
     });
   }
 
+  logout() {
+    this.authService.logout();
+  }
 }
