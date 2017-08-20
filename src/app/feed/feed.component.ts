@@ -10,7 +10,6 @@ import { FirebaseListObservable } from 'angularfire2/database';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit, OnChanges {
-
   feed: FirebaseListObservable<ChatMessage[]>;
 
   constructor(private chat: ChatService) { }
@@ -22,4 +21,5 @@ export class FeedComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.feed = this.chat.getMessages();
   }
+
 }
